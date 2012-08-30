@@ -4,8 +4,9 @@
 <!-- Benjamin Onken -->
 <!-- VFW 1209 -->
 
+<!-- HTML Tag -->
 <html>
-
+        <!-- Head Tag -->
 	<head>
                 <!-- Meta Tags -->
                 <meta charset="UTF-8" />
@@ -15,28 +16,36 @@
                 <meta name="viewport" content="user-scalable=no, width=device-width" />
                 <meta name="HandheldFriendly" content="True" />
                 <meta name="MobileOptimized" content="320" />
+                <meta name="viewport" content="target-densitydpi=device-dpi" />
         
                 <!-- Title -->
 	       <title>Scuba Divers Log</title>
 	</head>
-
+        <!-- Body -->
         <body>
+                <!-- Header -->
                 <header>
                         <h1>Divers Log</h1>
                 </header>
-
+                <!-- Article -->
                 <article>
+                        <!-- Scuba Dive Log Form -->
                         <form action="#" method="post">
                                 <fieldset>
                                         <legend><h2>Log a Dive</h2></legend>
                                         <ul>
-                                                <li><label for="date">Date of Dive: </label><br /><input type="date" id="date" placeholder="mm/dd/yyyy" /></li>
+                                                <!-- Date of dive -->
+                                                <li><label for="date">Date of Dive:</label><br /><input type="date" id="date" placeholder="mm/dd/yyyy" /></li>
+                                                <!-- Dive Location -->
                                                 <li><label for="diveLocation">Location of Dive:</label><br /><input type="text" id="diveLocation" /></li>
+                                                <!-- Shore or Boat Dive Radio Selector -->
                                                 <li>Shore or Boat Dive?<br />
                                                         <input type="radio" value="Shore" id="shore" name="shoreOrBoat" /><label for="shore">Shore</label>
                                                         <input type="radio" value="Boat" id="boat" name="shoreOrBoat" /><label for="boat">Boat</label>
                                                 </li>
-                                                <li>Depth of Dive<br /><input type="range" name="points" min="10" max="200" /></li>
+                                                <!-- Depth of Dive Range -->
+                                                <li><label for="depth">Depth of Dive</lable><br /><input type="range" name="feet" min="10" max="200" /></li>
+                                                <!-- Length of Dive Drop down with options -->
                                                 <li>
                                                         <label for="length">Length of Dive</label>
                                                         <br />
@@ -50,12 +59,15 @@
                                                                 <option value="60">60 minutes</option>
                                                         </select>
                                                 </li>
+                                                <!-- Addition information Text Area -->
                                                 <li><label for="notes">Additional Information:</label><br /><textarea placeholder="...."></textarea></li>
                                                 <li><input type="hidden" value="true" /></li>
                                         </ul>
                                 </fieldset>
+                                <!-- Submit Button -->
                                 <input type="submit" value="Log Dive" />
                         </form>
+                        <!-- Links to see or clear History -->
                         <a href="#">Show Dive Log History</a>
                         <br />
                         <a href="#">Clear Dive Log History</a>
