@@ -30,14 +30,31 @@
                                 <fieldset>
                                         <legend><strong>Log a Dive</strong></legend>
                                         <ul>
-                                        <li><label for="date">Date of Dive: </label><br /><input type="date" id="date" placeholder="mm/dd/yyyy" /></li>
-                                        <li><label for="diveLocation">Location of Dive:</label><br /><input type="text" id="diveLocation" /></li>
-                                        <li>Shore or Boat Dive?<br />
-                                                <input type="radio" value="Shore" id="shore" name="shoreOrBoat" /><label for="shore">Shore</label>
-                                                <input type="radio" value="Boat" id="boat" name="shoreOrBoat" /><label for="boat">Boat</label>
-                                        </li>
-
+                                                <li><label for="date">Date of Dive: </label><br /><input type="date" id="date" placeholder="mm/dd/yyyy" /></li>
+                                                <li><label for="diveLocation">Location of Dive:</label><br /><input type="text" id="diveLocation" /></li>
+                                                <li>Shore or Boat Dive?<br />
+                                                        <input type="radio" value="Shore" id="shore" name="shoreOrBoat" /><label for="shore">Shore</label>
+                                                        <input type="radio" value="Boat" id="boat" name="shoreOrBoat" /><label for="boat">Boat</label>
+                                                </li>
+                                                <li>Depth of Dive<br /><input type="range" name="points" min="10" max="200" /></li>
+                                                <li>
+                                                        <label for="length">Length of Dive</label>
+                                                        <br />
+                                                        <select id="length">
+                                                                <option value="default" selected disabled>--Length in Minutes of Dive--</option>
+                                                                <option value="10">10 minutes</option>
+                                                                <option value="20">20 minutes</option>
+                                                                <option value="30">30 minutes</option>
+                                                                <option value="40">40 minutes</option>
+                                                                <option value="50">50 minutes</option>
+                                                                <option value="60">60 minutes</option>
+                                                        </select>
+                                                </li>
+                                                <li><label for="notes">Additional Information:</label><br><textarea placeholder="...."></textarea></li>
+                                                <li><input type="hidden" value="true" /></li>
+                                        </ul>
                                 </fieldset>
+                                <input type="submit" value="Log Dive" />
                         </form>
                 </article>
         </body>
