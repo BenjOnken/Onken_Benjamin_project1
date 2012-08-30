@@ -7,17 +7,17 @@
 <html>
 
 	<head>
-        <!-- Meta Tags -->
-        <meta charset="UTF-8" />
-        <meta name="keywords" content="html5, project1, Scuba, Divers, Log" />
-        <meta name="description" content="VFW Project 1" />
-        <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="user-scalable=no, width-device-width" />
-        <meta name="HandheldFriendly" content="True" />
-        <meta name="MobileOptimized" content="320" />
+                <!-- Meta Tags -->
+                <meta charset="UTF-8" />
+                <meta name="keywords" content="html5, project1, Scuba, Divers, Log" />
+                <meta name="description" content="VFW Project 1" />
+                <meta name="robots" content="index, follow" />
+                <meta name="viewport" content="user-scalable=no, width=device-width" />
+                <meta name="HandheldFriendly" content="True" />
+                <meta name="MobileOptimized" content="320" />
         
-        <!-- Title -->
-	<title>Scuba Divers Log</title>
+                <!-- Title -->
+	       <title>Scuba Divers Log</title>
 	</head>
 
         <body>
@@ -28,7 +28,7 @@
                 <article>
                         <form action="#" method="post">
                                 <fieldset>
-                                        <legend><strong>Log a Dive</strong></legend>
+                                        <legend><h2>Log a Dive</h2></legend>
                                         <ul>
                                                 <li><label for="date">Date of Dive: </label><br /><input type="date" id="date" placeholder="mm/dd/yyyy" /></li>
                                                 <li><label for="diveLocation">Location of Dive:</label><br /><input type="text" id="diveLocation" /></li>
@@ -50,12 +50,15 @@
                                                                 <option value="60">60 minutes</option>
                                                         </select>
                                                 </li>
-                                                <li><label for="notes">Additional Information:</label><br><textarea placeholder="...."></textarea></li>
+                                                <li><label for="notes">Additional Information:</label><br /><textarea placeholder="...."></textarea></li>
                                                 <li><input type="hidden" value="true" /></li>
                                         </ul>
                                 </fieldset>
                                 <input type="submit" value="Log Dive" />
                         </form>
+                        <a href="#">Show Dive Log History</a>
+                        <br />
+                        <a href="#">Clear Dive Log History</a>
                 </article>
         </body>
 </html>
