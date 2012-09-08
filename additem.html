@@ -47,9 +47,10 @@
                                                 <!-- Depth of Dive Range -->
                                                 <li><label for="depth">Depth of Dive </lable><output name="feetoutput" for="depth" placeholder="0"></output><br /><input type="range" name="depth" id="depth" min="10" max="200" value="10" /></li>
                                                 <!-- Length of Dive Drop down with options -->
-                                                <li>
+                                                <li id="select">
                                                         <label for="length">Length of Dive</label>
                                                         <br />
+                                                <!--
                                                         <select id="length">
                                                                 <option value="default" selected disabled>--Length in Minutes of Dive--</option>
                                                                 <option value="10">10 minutes</option>
@@ -59,6 +60,7 @@
                                                                 <option value="50">50 minutes</option>
                                                                 <option value="60">60 minutes</option>
                                                         </select>
+                                                -->
                                                 </li>
                                                 <!-- Addition information Text Area -->
                                                 <li><label for="notes">Additional Information:</label><br /><textarea id="notes" placeholder="..."></textarea></li>
@@ -71,6 +73,7 @@
                         <!-- Links to see or clear History -->
                         <a href="#" id="history">Show Dive Log History</a>
                         <a href="#" id="clear">Clear Dive Log History</a>
+                        <script src="js/main.js" type="text/javascript"></script>
                 </article>
         </body>
 </html>
