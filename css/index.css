@@ -1,3 +1,4 @@
+
 /*
 Benjamin Onken
 VFW 1209
@@ -9,16 +10,24 @@ body{
 	background-repeat:no-repeat;
 }
 
+body header{
+	padding: 0;
+	margin: 0;
+	background: -webkit-linear-gradient(top, #666666 1%, #000000 50%, #666666 99%);
+}
+
 h1{
-	-moz-border-radius: 15px;
-	border-radius: 15px;
-	background-color: #000000;
-	font-family: Arial;
+	font-family: Helvetica;
+	font-size: 20px;
 	text-align: center;
 	color: #ffffff;
-	margin-top: 0;
-	padding-top: 0;
-
+	text-shadow:
+	-1px -1px 0 #000000,
+	1px -1px 0 #000000,
+	-1px 1px 0 #000000,
+	1px 1px 0 #000000;	
+	margin: 0;
+	padding: 0; 
 }
 
 p{
@@ -29,19 +38,18 @@ p{
 	-1px 1px 0 #000000,
 	1px 1px 0 #000000;
 	text-align: center;
-
 }
 
 h2{
 	text-align: center;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
-	background-color: #ffffff;
-
+	background: -webkit-linear-gradient(top, #ff9900 49%, #ff6600 50%, #ff9900 99%);
 }
-
 
 a:link{color:blue;}
 a:visited{color:purple;}
 a:hover{color:#ee0000;}
 a:active{color:yellow;}
+h2:active{background-color:#000000;}
+

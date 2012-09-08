@@ -20,6 +20,7 @@
         
                 <!-- Title -->
 	       <title>Scuba Divers Log</title>
+               <link rel="stylesheet" type="text/css" href="css/additem.css" />
 	</head>
         <!-- Body -->
         <body>
@@ -35,7 +36,7 @@
                                         <legend><h2>Log a Dive</h2></legend>
                                         <ul>
                                                 <!-- Date of dive -->
-                                                <li><label for="date">Date of Dive:</label><br /><input type="date" id="date" placeholder="mm/dd/yyyy" /></li>
+                                                <li><label for="date">Date of Dive:</label><br /><input type="date" id="date" placeholder="yyyy/mm/dd" /></li>
                                                 <!-- Dive Location -->
                                                 <li><label for="diveLocation">Location of Dive:</label><br /><input type="text" id="diveLocation" /></li>
                                                 <!-- Shore or Boat Dive Radio Selector -->
@@ -61,7 +62,7 @@
                                                 </li>
                                                 <!-- Addition information Text Area -->
                                                 <li><label for="notes">Additional Information:</label><br /><textarea id="notes" placeholder="...."></textarea></li>
-                                                <li><input type="hidden" value="true" /></li>
+                                              <!--  <li><input type="hidden" value="true" /></li>  -->
                                         </ul>
                                 </fieldset>
                                 <!-- Submit Button -->
