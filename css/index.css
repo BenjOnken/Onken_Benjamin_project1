@@ -8,6 +8,7 @@ Project Style Sheet for index.html
 body{
 	background-image:url('images/scuba.jpg'); 
 	background-repeat:no-repeat;
+	background-position: top center;
 }
 
 body header{
@@ -44,7 +45,7 @@ h2{
 	text-align: center;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
-	background: -webkit-linear-gradient(top, #ff9900 49%, #ff6600 50%, #ff9900 99%);
+	background: -webkit-linear-gradient(top, #ff9900 1%, #ff6600 50%, #ff9900 99%);
 }
 
 a:link{color:blue;}

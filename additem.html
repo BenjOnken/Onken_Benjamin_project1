@@ -31,10 +31,10 @@
                 <!-- Article -->
                 <article>
                         <!-- Scuba Dive Log Form -->
-                        <form action="#" method="post">
+                        <form action="#" method="post" oninput="feetoutput.value = parseInt(depth.value)">
                                 <fieldset>
                                         <legend><h2>Log a Dive</h2></legend>
-                                        <ul>
+                                        <ul id="list">
                                                 <!-- Date of dive -->
                                                 <li><label for="date">Date of Dive:</label><br /><input type="date" id="date" placeholder="yyyy/mm/dd" /></li>
                                                 <!-- Dive Location -->
@@ -45,7 +45,7 @@
                                                         <input type="radio" value="Boat" id="boat" name="shoreOrBoat" /><label for="boat">Boat</label>
                                                 </li>
                                                 <!-- Depth of Dive Range -->
-                                                <li><label for="depth">Depth of Dive</lable><br /><input type="range" name="feet" min="10" max="200" /></li>
+                                                <li><label for="depth">Depth of Dive </lable><output name="feetoutput" for="depth" placeholder="0"></output><br /><input type="range" name="depth" id="depth" min="10" max="200" value="10" /></li>
                                                 <!-- Length of Dive Drop down with options -->
                                                 <li>
                                                         <label for="length">Length of Dive</label>
@@ -61,17 +61,16 @@
                                                         </select>
                                                 </li>
                                                 <!-- Addition information Text Area -->
-                                                <li><label for="notes">Additional Information:</label><br /><textarea id="notes" placeholder="...."></textarea></li>
+                                                <li><label for="notes">Additional Information:</label><br /><textarea id="notes" placeholder="..."></textarea></li>
                                               <!--  <li><input type="hidden" value="true" /></li>  -->
                                         </ul>
                                 </fieldset>
                                 <!-- Submit Button -->
-                                <input type="submit" value="Log Dive" />
+                                <input id="submit" type="submit" value="Log Dive" />
                         </form>
                         <!-- Links to see or clear History -->
-                        <a href="#">Show Dive Log History</a>
-                        <br />
-                        <a href="#">Clear Dive Log History</a>
+                        <a href="#" id="history">Show Dive Log History</a>
+                        <a href="#" id="clear">Clear Dive Log History</a>
                 </article>
         </body>
 </html>

@@ -7,6 +7,7 @@ Project Style Sheet for additem.html
 body{
 	background-image:url('images/scuba.jpg'); 
 	background-repeat:no-repeat;
+	background-position: center;
 }
 
 body header{
@@ -28,3 +29,85 @@ h1{
 	margin: 0;
 	padding: 0; 
 }
+
+fieldset{
+    position: relative;
+    border: 0;
+}
+
+legend{
+	text-shadow:
+	-1px -1px 0 #000000,
+	1px -1px 0 #000000,
+	-1px 1px 0 #000000,
+	1px 1px 0 #000000;
+	color: red;
+	text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0; 
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+#list li {
+    list-style: none;
+    width: auto;
+    display: block;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+#date{
+	text-align: center;
+	font-family: helvetica;
+}
+
+#diveLocation{
+	font-family: helvetica;
+}
+
+#notes{
+	font-family: helvetica;
+}
+
+#history{
+	color:green;
+	font-size: 18;
+	text-shadow:
+	-1px -1px 0 #000000,
+	1px -1px 0 #000000,
+	-1px 1px 0 #000000,
+	1px 1px 0 #000000;
+}
+
+#clear{
+	color:red;
+	font-size: 18;
+	text-shadow:
+	-1px -1px 0 #000000,
+	1px -1px 0 #000000,
+	-1px 1px 0 #000000,
+	1px 1px 0 #000000;
+}
+
+#submit{
+	position: center;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
