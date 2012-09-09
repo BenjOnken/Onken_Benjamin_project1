@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<!-- Project 1 -->
+<!-- Project 2 -->
 <!-- Benjamin Onken -->
 <!-- VFW 1209 -->
 
@@ -23,7 +23,7 @@
                <link rel="stylesheet" type="text/css" href="css/additem.css" />
 	</head>
         <!-- Body -->
-        <body>
+        <body id="mybody">
                 <!-- Header -->
                 <header>
                         <h1>Divers Log</h1>
@@ -31,7 +31,7 @@
                 <!-- Article -->
                 <article>
                         <!-- Scuba Dive Log Form -->
-                        <form action="#" method="post" oninput="feetoutput.value = parseInt(depth.value)">
+                        <form id="diveLog" action="#" method="post" oninput="feetoutput.value = parseInt(depth.value)">
                                 <fieldset>
                                         <legend><h2>Log a Dive</h2></legend>
                                         <ul id="list">
@@ -50,17 +50,7 @@
                                                 <li id="select">
                                                         <label for="length">Length of Dive</label>
                                                         <br />
-                                                <!--
-                                                        <select id="length">
-                                                                <option value="default" selected disabled>--Length in Minutes of Dive--</option>
-                                                                <option value="10">10 minutes</option>
-                                                                <option value="20">20 minutes</option>
-                                                                <option value="30">30 minutes</option>
-                                                                <option value="40">40 minutes</option>
-                                                                <option value="50">50 minutes</option>
-                                                                <option value="60">60 minutes</option>
-                                                        </select>
-                                                -->
+                                                
                                                 </li>
                                                 <!-- Addition information Text Area -->
                                                 <li><label for="notes">Additional Information:</label><br /><textarea id="notes" placeholder="..."></textarea></li>
@@ -73,6 +63,7 @@
                         <!-- Links to see or clear History -->
                         <a href="#" id="history">Show Dive Log History</a>
                         <a href="#" id="clear">Clear Dive Log History</a>
+                        <a href="additem.html" id="addNew" >Add Meeting</a>
                         <script src="js/main.js" type="text/javascript"></script>
                 </article>
         </body>

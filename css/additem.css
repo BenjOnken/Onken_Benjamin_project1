@@ -101,8 +101,17 @@ li {
 	text-align: center;
 }
 
+#addNew{
+	display: none;
+	color:green;
+	font-size: 18;
+	text-shadow:
+	-1px -1px 0 #000000,
+	1px -1px 0 #000000,
+	-1px 1px 0 #000000,
+	1px 1px 0 #000000;
 
-
+}
 
 
 

@@ -37,7 +37,27 @@ window.addEventListener("DOMContentLoaded", function(){
 			}
 		}
 	}
-
+    
+    function toggleControls(n){
+        switch(n){
+            case "on":
+                $('diveLog').style.display = "none";
+                $('clear').style.display = "inline";
+                $('history').style.display = "none";
+                $('addNew').style.display = "inline";
+                $('mybody').style.backgroundImage = "none";
+                break;
+            case "off":
+                $('diveLog').style.display = "block";
+                $('clear').style.display = "inline";
+                $('history').style.display = "inline";
+                $('addNew').style.display = "none";
+                $('items').style.display = "none";
+                break;
+            default:
+                return false;
+        }
+    }
 
 
 	function storeData(){
@@ -60,12 +80,17 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 
 	function getData(){
+		toggleControls("on");
+		if(localStorage.length === 0){
+			alert("There are no logs in storage.");
+		}
 		//write data from local storage to the browser
 		var makeDiv = document.createElement('div');
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement('ul');
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
+		$('items').style.display = "block";
 		for(var i=0, len=localStorage.length; i<len; i++){
 			var makeli = document.createElement('li');
 			makeList.appendChild(makeli);
@@ -84,6 +109,18 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 
+	function clearLocal(){
+		if(localStorage.length === 0){
+			alert("There is no data to clear.");
+		}
+		else{
+			localStorage.clear();
+			alert("All dive logs have been deleted!");
+			window.location.reload();
+			return false;
+		}
+	}
+
 //Variable defaults
 	var lengthOfDive = ["--Length in Minutes of Dive--", "10 minutes", "20 minutes", "30 minutes", "40 minutes", "50 minutes", "60 minutes"];
 	diveLength();
@@ -94,13 +131,12 @@ window.addEventListener("DOMContentLoaded", function(){
 
 	var displayLink = $('history');
 	displayLink.addEventListener("click", getData);
-	/*
+	
 	var clearLink = $('clear');
 	clearLink.addEventListener("click", clearLocal);
-	*/
+	
 	var save = $('submit');
 	save.addEventListener("click", storeData);
-
 
 
 
