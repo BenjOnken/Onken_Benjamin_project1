@@ -60,8 +60,17 @@ window.addEventListener("DOMContentLoaded", function(){
     }
 
 
-	function storeData(){
-		var id = Math.floor(Math.random()*10000000001);
+	function storeData(key){
+		//if there is no key, this means this is a brand new item and we need a new key.
+		if(!key){
+			var id = Math.floor(Math.random()*10000000001);
+		}
+		else{
+		//Set the id to the existing key were editing so that it will save over the data.
+		//The key is the same key thats been passed along from the editSubmit event handler
+		//to the validate function, and then passed here, into the storeData function.
+			id = key;
+		}
 		//Gather all our form field values and store in an object
 		//Object properties contain array with the form label and input value
 		getSelectedRadio();
@@ -190,29 +199,34 @@ window.addEventListener("DOMContentLoaded", function(){
 
 	function validate(e){
 		//define the elements we want to check 
-		
 		var getDate = $('date');
-		var getLocation = $('locationOfDive');
-		var getLength = $('divesLength');
+		var getLocation = $('diveLocation');
+		var getLength = $('select');
+
+		//reset error messages
+		errMsg.innerHTML = "";
+		getLength.style.border = "1px solid black";
+		getDate.style.border = "1px solid black";
+		getLocation.style.border = "1px solid black";
 
 		//get error messages
 		var messageAry = [];
 		//length of dive validation
-		if(getLength.value == "--Length in Minutes of Dive--"){
+		if(getLength.value === "--Length in Minutes of Dive--"){
 			var lengthError = "Please select the length of the Dive.";
 			getLength.style.border = "1px solid red";
 			messageAry.push(lengthError);
 		}
 
 		//Date validation
-		if(getDate.value === " "){
+		if(getDate.value === ""){
 			var dateError = "Please enter a date";
 			getDate.style.border = "1px solid red";
 			messageAry.push(dateError);
 		}
 
 		//Location Validation
-		if(getLocation.value === " "){
+		if(getLocation.value === ""){
 			var locationError = "Please enter a location";
 			getLocation.style.border = "1px solid red";
 			messageAry.push(locationError);
@@ -225,10 +239,15 @@ window.addEventListener("DOMContentLoaded", function(){
 				txt.innerHTML = messageAry[i];
 				errMsg.appendChild(txt);
 			}
-
-		}
 		e.preventDefault();
 		return false;
+		}
+		else{
+			//if no errors, save data, send the key value(which came from the editData function).
+			//remember this key value was passed through the editSubmit event listener as a porperty.
+			storeData(this.key);
+		}
+
 
 	}
 
