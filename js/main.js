@@ -154,14 +154,25 @@ window.addEventListener("DOMContentLoaded", function(){
 		$('groups').value = item.divesLength[1];
 		$('notes').value = item.notes[1];
 		var radios = document.forms[0].shoreOrBoat;
-		for(var i=0; i<radios.lenght; i++){
-			if(radios[i].value == "shore" && item.shoreOrBoat[1] == "Shore"){
+		for(var i=0; i<radios.length; i++){
+			if(radios[i].value == "Shore" && item.typeOfDive[1] == "Shore"){
 				radios[i].setAttribute("checked", "checked");
 			}
-			else if(radios[i].value == "boat" && item.shoreOrBoat[1] == "Boat"){
+			else if(radios[i].value == "Boat" && item.typeOfDive[1] == "Boat"){
 				radios[i].setAttribute("checked", "checked");
 			}	
 		}
+
+		//remove the initial listener from the input 'save contact' button.
+		save.removeEventlistener("click", storeData);
+		//Change Submit button value to edit button
+		$('submit').value = "Edit Log";
+		var editSubmit = $('submit');
+
+		//save the key value established in this function as a property of the editSubmit event
+		//so we can use that value when we save the data we edited.
+		editSubmit.addEventListener("click", validate);
+		editSubmit.key = this.key;
 
 	}
 
@@ -177,10 +188,55 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 
+	function validate(e){
+		//define the elements we want to check 
+		
+		var getDate = $('date');
+		var getLocation = $('locationOfDive');
+		var getLength = $('divesLength');
+
+		//get error messages
+		var messageAry = [];
+		//length of dive validation
+		if(getLength.value == "--Length in Minutes of Dive--"){
+			var lengthError = "Please select the length of the Dive.";
+			getLength.style.border = "1px solid red";
+			messageAry.push(lengthError);
+		}
+
+		//Date validation
+		if(getDate.value === " "){
+			var dateError = "Please enter a date";
+			getDate.style.border = "1px solid red";
+			messageAry.push(dateError);
+		}
+
+		//Location Validation
+		if(getLocation.value === " "){
+			var locationError = "Please enter a location";
+			getLocation.style.border = "1px solid red";
+			messageAry.push(locationError);
+		}
+
+		//if there were errors, display them on the screen.
+		if(messageAry.length >= 1){
+			for(var i=0, j=messageAry.length; i < j; i++){
+				var txt = document.createElement('li');
+				txt.innerHTML = messageAry[i];
+				errMsg.appendChild(txt);
+			}
+
+		}
+		e.preventDefault();
+		return false;
+
+	}
+
 //Variable defaults
 	var lengthOfDive = ["--Length in Minutes of Dive--", "10 minutes", "20 minutes", "30 minutes", "40 minutes", "50 minutes", "60 minutes"];
 	diveLength();
 	var diveType;
+	var errMsg = $('errors');
 
 
 //set link and submit click events
@@ -192,7 +248,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	clearLink.addEventListener("click", clearLocal);
 	
 	var save = $('submit');
-	save.addEventListener("click", storeData);
+	save.addEventListener("click", validate);
 
 
 
