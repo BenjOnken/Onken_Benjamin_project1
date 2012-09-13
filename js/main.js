@@ -93,6 +93,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		$('items').style.display = "block";
 		for(var i=0, len=localStorage.length; i<len; i++){
 			var makeli = document.createElement('li');
+			var linksLi = document.createElement('li');
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
@@ -105,8 +106,63 @@ window.addEventListener("DOMContentLoaded", function(){
 				makeSubList.appendChild(makeSubli);
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubli.innerHTML = optSubText;
+				makeSubList.appendChild(linksLi);
 			}
+			makeItemLinks(localStorage.key(i), linksLi);  //Create out edit and delete buttons/links for each item in local storage.
+
 		}
+	}
+	// Make item links function
+	//create the edit and delete links for each stored item when displayed.
+	function makeItemLinks(key, linksLi){
+		//add edit single item link
+		var editLink = document.createElement('a');
+		editLink.href = "#";
+		editLink.key = key;
+		var editText = "Edit Log";
+		editLink.addEventListener("click", editItem);
+		editLink.innerHTML = editText;
+		linksLi.appendChild(editLink);
+
+		//add line break
+		var breakTag = document.createElement('br');
+		linksLi.appendChild(breakTag);
+
+		//add delete single item link
+		var deleteLink = document.createElement('a');
+		deleteLink.href = "#";
+		deleteLink.key = key;
+		var deleteText = "Delete Log";
+		//deleteLink.addEventListener("click", deleteItem);
+		deleteLink.innerHTML = deleteText;
+		linksLi.appendChild(deleteLink);
+
+	}
+
+	function editItem(){
+		//Grab the data from our item from Local Storage
+		var value = localStorage.getItem(this.key);
+		var item = JSON.parse(value);
+
+		//show form
+		toggleControls("off");
+
+		//populate the form fields with current localstorage values
+		$('date').value = item.date[1];
+		$('diveLocation').value = item.locationOfDive[1];
+		$('depth').value = item.depth[1];
+		$('groups').value = item.divesLength[1];
+		$('notes').value = item.notes[1];
+		var radios = document.forms[0].shoreOrBoat;
+		for(var i=0; i<radios.lenght; i++){
+			if(radios[i].value == "shore" && item.shoreOrBoat[1] == "Shore"){
+				radios[i].setAttribute("checked", "checked");
+			}
+			else if(radios[i].value == "boat" && item.shoreOrBoat[1] == "Boat"){
+				radios[i].setAttribute("checked", "checked");
+			}	
+		}
+
 	}
 
 	function clearLocal(){
