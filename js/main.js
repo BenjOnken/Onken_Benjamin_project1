@@ -142,7 +142,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Log";
-		//deleteLink.addEventListener("click", deleteItem);
+		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 
@@ -173,7 +173,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 
 		//remove the initial listener from the input 'save contact' button.
-		save.removeEventlistener("click", storeData);
+		save.removeEventListener("click", storeData);
 		//Change Submit button value to edit button
 		$('submit').value = "Edit Log";
 		var editSubmit = $('submit');
@@ -182,6 +182,19 @@ window.addEventListener("DOMContentLoaded", function(){
 		//so we can use that value when we save the data we edited.
 		editSubmit.addEventListener("click", validate);
 		editSubmit.key = this.key;
+
+	}
+
+	function deleteItem(){
+		var ask = confirm("Are you sure you wish to delete this log?");
+		if(ask){
+			localStorage.removeItem(this.key);
+			alert("Log was deleted!");
+			window.location.reload();
+		}
+		else{
+			alert("Log was not deleted");
+		}
 
 	}
 
