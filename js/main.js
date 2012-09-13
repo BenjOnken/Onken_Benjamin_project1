@@ -214,7 +214,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		//define the elements we want to check 
 		var getDate = $('date');
 		var getLocation = $('diveLocation');
-		var getLength = $('select');
+		var getLength = $('groups');
 
 		//reset error messages
 		errMsg.innerHTML = "";
