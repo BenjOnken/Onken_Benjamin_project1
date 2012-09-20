@@ -110,6 +110,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement('ul');
 			makeli.appendChild(makeSubList);
+			getImage(obj.divesLength[1], makeSubList);
 			for(var n in obj){
 				var makeSubli = document.createElement('li');
 				makeSubList.appendChild(makeSubli);
@@ -118,9 +119,19 @@ window.addEventListener("DOMContentLoaded", function(){
 				makeSubList.appendChild(linksLi);
 			}
 			makeItemLinks(localStorage.key(i), linksLi);  //Create out edit and delete buttons/links for each item in local storage.
-
 		}
 	}
+
+	//Get the image for the right catefory
+	function getImage(catName, makeSubList)
+	{
+		var imageLi = document.createElement('li');
+		makeSubList.appendChild(imageLi);
+		var newImg = document.createElement('img');
+		var setSrc = newImg.setAttribute("src", "css/images/"+ catName +".png");
+		imageLi.appendChild(newImg);
+	}
+
 	// Make item links function
 	//create the edit and delete links for each stored item when displayed.
 	function makeItemLinks(key, linksLi){
@@ -265,7 +276,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 
 //Variable defaults
-	var lengthOfDive = ["--Length in Minutes of Dive--", "10 minutes", "20 minutes", "30 minutes", "40 minutes", "50 minutes", "60 minutes"];
+	var lengthOfDive = ["--Length in Minutes of Dive--", "10minutes", "20minutes", "30minutes", "40minutes", "50minutes", "60minutes"];
 	diveLength();
 	var diveType;
 	var errMsg = $('errors');
