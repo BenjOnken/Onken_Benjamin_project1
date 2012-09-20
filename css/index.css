@@ -8,7 +8,7 @@ Project Style Sheet for index.html
 body{
 	background-image:url('images/scuba.jpg'); 
 	background-repeat:no-repeat;
-	background-position: top center;
+	background-position: center;
 }
 
 body header{
