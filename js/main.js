@@ -91,7 +91,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	function getData(){
 		toggleControls("on");
 		if(localStorage.length === 0){
-			alert("There are no logs in storage.");
+			alert("There are no logs in storage. Default data was added.");
+			autoFillData();
 		}
 		//write data from local storage to the browser
 		var makeDiv = document.createElement('div');
@@ -130,6 +131,16 @@ window.addEventListener("DOMContentLoaded", function(){
 		var newImg = document.createElement('img');
 		var setSrc = newImg.setAttribute("src", "css/images/"+ catName +".png");
 		imageLi.appendChild(newImg);
+	}
+
+	//Auto Populate Local Storage
+	function autoFillData(){
+		//The actual JSON Object required for this to work is coming from our json.js file, which is loaded from our HTML page
+		//Store the JSON Object into Local Storage
+		for(var n in json){
+			var id = Math.floor(Math.random()*10000000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+		}
 	}
 
 	// Make item links function
